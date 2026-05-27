@@ -17,7 +17,7 @@ angry_msgs = [
     "leave me alone"
 ]
 def cute_cat(event):
-    left__messages = random.choice(cute_msgs)
+    left_messages = random.choice(cute_msgs)
     msg_label.config(text = left_messages)
     img_label.config(image = cute_img)
 
@@ -34,13 +34,13 @@ angry_img = Image.open("cat2.png")
 angry_img = angry_img.resize((250,250))
 angry_img = ImageTk.PhotoImage(angry_img)
 
-img_label = tk.Label(windows, Image = angry_img)
+img_label = tk.Label(windows, image = cute_img)
 img_label.pack()
 
 random_message = random.choice(cute_msgs)
-msg_label = tk.Label(windows, text = cute_msgs)
+msg_label = tk.Label(windows, text = random_message)
 msg_label.pack()
 
-img_label.bind("<Button-1",cute_cat)
+img_label.bind("<Button-1>",cute_cat)
 img_label.bind("<Button-3>",angry_cat)
 windows.mainloop()
