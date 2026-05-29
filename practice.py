@@ -4,55 +4,62 @@ from PIL import Image, ImageTk
 
 windows = tk.Tk()
 windows.overrideredirect(True)
+windows.title("BlackCat")
+windows.geometry("300x300+1000+300")
 windows.wm_attributes("-topmost",True)
-windows.config(bg = "black")
-windows.wm_attributes("-transparentcolor","black")
-windows.title("Cat")
-windows.geometry("300x300+1200+400")
+windows.config(bg="black")
+windows.wm_attributes("-transparentcolor","black") 
 
-cute_msgs = [
-    "Hellooo",
+cute_msg = [ 
     "Pet me",
-    "Missed you"
+    "Helloo",
+    "Hydrate now"
 ]
-angry_msgs = [
+angry_msg = [
+    "Leave me alone",
     "Iam hungry",
-    "let me sleep",
-    "Leave me alone"
+    "Pay me attenton"
+]
+sleepy_msg =[
+    "Let me sleep",
+    "Iam tired",
+    "Yawn.."
 ]
 
-def close_window(event):
+def cute_mood():
+    message.config(text = random.choice(cute_msg))
+    cat_img.config(image = cat_img1)
+def angry_mood():
+    message.config(text = random.choice(angry_msg))
+    cat_img.config (image = cat_img2 )
+def sleepy_mood():
+    message.config(text = random.choice(sleepy_msg))
+    cat_img.config(image = cat_img3)
+
+def cat_mood():
+    mood = random.choice([cute_mood,angry_mood,sleepy_mood])
+    mood()
+    windows.after(3000,cat_mood)
+    
+def close_app(event):
     windows.destroy()
 
-def cute_cat(event):
-    left_click = random.choice(cute_msgs)
-    message.config(text = left_click)
-    cat_img.config(image = cat_img1)
-
-def angry_cat(event):
-    right_click = random.choice(angry_msgs)
-    message.config(text = right_click)
-    cat_img.config(image = cat_img2)
-
-
+message = random.choice(cute_msg)
+message = tk.Label(windows, text = message, bg = "black", fg = "white")
+message.pack()
 cat_img1 = Image.open("cat.png")
-cat_img1 = cat_img1.resize((200,200))
+cat_img1 = cat_img1.resize((250,250))
 cat_img1 = ImageTk.PhotoImage(cat_img1)
-
 cat_img2 = Image.open("cat2.png")
 cat_img2 = cat_img2.resize((250,250))
 cat_img2 = ImageTk.PhotoImage(cat_img2)
-
+cat_img3 = Image.open("cat3.png")
+cat_img3 = cat_img3.resize((250,250))
+cat_img3 = ImageTk.PhotoImage(cat_img3)
 cat_img = tk.Label(windows, image = cat_img1, bg = "black")
 cat_img.pack()
 
-random_msg = random.choice(cute_msgs)
-message = tk.Label(windows,text = random_msg, bg = "black", fg = "white")
-message.pack()
-
-cat_img.bind("<Button-1>",cute_cat)
-cat_img.bind("<Button-3>",angry_cat)
-windows.bind("<Escape>",close_window)
-
+windows.bind("<Escape>",close_app)
+cat_mood()
 
 windows.mainloop()
