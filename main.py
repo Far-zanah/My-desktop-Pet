@@ -23,7 +23,30 @@ angry_msgs =[
     "I am bored, play with me NOW!",
     "Let me sleep."
     ]
+sleepy_msgs = [
+    "Iam sleepy",
+    "Let me sleep",
+    "iam tired"
+]
+def cute_mood():
+    message.config(text = random.choice(cute_msgs))
+    cat_label.config(image = cat_img1)
+def angry_mood():
+    message.config(text = random.choice(angry_msgs))
+    cat_label.config(image = cat_img2)
+def sleep_mood():
+    message.config(text = random.choice(sleepy_msgs))
+    cat_label.config(image = cat_img3, bg = "black")
+def random_mood():
+    mood = random.choice([cute_mood,angry_mood,sleep_mood])
+    mood()
+    windows.after(6000,random_mood)
 
+
+#def random_mood():
+ #   message.config(text = random.choice(cute_msgs))
+  #  message.config(text = random.choice(angry_msgs))
+   # windows.after(3000, random_mood)
 
 def close_app(event):
     windows.destroy()
@@ -43,6 +66,9 @@ cat_img1 = ImageTk.PhotoImage(cat_img1)
 cat_img2 = Image.open('cat2.png')
 cat_img2 = cat_img2.resize((215,215))
 cat_img2 = ImageTk.PhotoImage(cat_img2)
+cat_img3 = Image.open("cat3.png")
+cat_img3 = cat_img3.resize((250,250))
+cat_img3 = ImageTk.PhotoImage(cat_img3)
 
 
 cat_label = tk.Label(windows, image=cat_img1, bg = "black")
@@ -57,6 +83,7 @@ random_message = random.choice(cute_msgs)
 message = tk.Label(windows, text = random_message, font = ("arial", 10, "bold"), bg ="black", fg = "white")
 message.pack()
 
+random_mood()
 windows.bind("<Escape>",close_app)
 
 windows.mainloop()
