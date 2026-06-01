@@ -43,6 +43,7 @@ def random_mood():
     windows.after(6000,random_mood)
 
 
+
 #def random_mood():
  #   message.config(text = random.choice(cute_msgs))
   #  message.config(text = random.choice(angry_msgs))
@@ -82,6 +83,21 @@ cat_label.bind("<Button-3>", angry_message)
 random_message = random.choice(cute_msgs)
 message = tk.Label(windows, text = random_message, font = ("arial", 10, "bold"), bg ="black", fg = "white")
 message.pack()
+current_mood = "cute"
+
+def pet_cat(event):
+    global current_mood
+    if  current_mood =="cute":
+        current_mood ="sleepy" 
+        sleep_mood()
+    elif current_mood =="sleepy":
+        current_mood = "angry" 
+        angry_mood()
+    elif current_mood =="angry":
+        current_mood = "cute" 
+        cute_mood()
+cat_label.bind("<Button-1>",pet_cat)
+
 
 random_mood()
 windows.bind("<Escape>",close_app)
