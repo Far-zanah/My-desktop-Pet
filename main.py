@@ -76,30 +76,41 @@ cat_label = tk.Label(windows, image=cat_img1, bg = "black")
 cat_label.pack()
 
 
-cat_label.bind("<Button-1>",cute_message)
-cat_label.bind("<Button-3>", angry_message)
+#cat_label.bind("<Button-1>",cute_message)
+#cat_label.bind("<Button-3>", angry_message)
 
 
 random_message = random.choice(cute_msgs)
 message = tk.Label(windows, text = random_message, font = ("arial", 10, "bold"), bg ="black", fg = "white")
 message.pack()
 current_mood = "cute"
-
+pet_count = 0
 def pet_cat(event):
     global current_mood
+    global pet_count
+    print(current_mood,pet_count)
     if  current_mood =="cute":
-        current_mood ="sleepy" 
-        sleep_mood()
+        pet_count = pet_count + 1
+        if pet_count == 3:
+            current_mood ="sleepy" 
+            sleep_mood()
+            pet_count = 0
     elif current_mood =="sleepy":
-        current_mood = "angry" 
-        angry_mood()
-    elif current_mood =="angry":
-        current_mood = "cute" 
-        cute_mood()
+        pet_count = pet_count + 1
+        if pet_count == 1:
+            current_mood = "angry" 
+            angry_mood()
+            pet_count = 0
+    elif current_mood =="angry":   
+        pet_count = pet_count + 1
+        if pet_count == 2:
+            current_mood = "cute" 
+            cute_mood()
+            pet_count = 0
 cat_label.bind("<Button-1>",pet_cat)
 
 
-random_mood()
+#random_mood()
 windows.bind("<Escape>",close_app)
 
 windows.mainloop()

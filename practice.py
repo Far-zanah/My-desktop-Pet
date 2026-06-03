@@ -59,6 +59,22 @@ cat_img3 = ImageTk.PhotoImage(cat_img3)
 cat_img = tk.Label(windows, image = cat_img1, bg = "black")
 cat_img.pack()
 
+current_mood = "cute"
+
+def pet_cat(event):
+    global current_mood
+    if current_mood == "cute":
+        current_mood = "sleepy"
+        sleepy_mood()
+    elif current_mood == "sleepy":
+        current_mood = "angry"
+        angry_mood()
+    elif current_mood == "angry":
+        current_mood = "cute"
+        cute_mood()
+
+cat_img.bind("<Button-1>",pet_cat)
+
 windows.bind("<Escape>",close_app)
 cat_mood()
 
