@@ -71,7 +71,6 @@ cat_img3 = Image.open("cat3.png")
 cat_img3 = cat_img3.resize((250,250))
 cat_img3 = ImageTk.PhotoImage(cat_img3)
 
-
 cat_label = tk.Label(windows, image=cat_img1, bg = "black")
 cat_label.pack()
 
