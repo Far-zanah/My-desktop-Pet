@@ -1,34 +1,140 @@
-# DesktopPet.exe
-# First Project
+# 🐱 BlackCat Desktop Pet
 
+A desktop pet built with Python and Tkinter as part of my journey learning programming and software development.
 
-A beginner desktop pet project built with Python and Tkinter.
+BlackCat is a virtual cat companion that lives on the desktop, displays different moods, responds to interaction, and features sprite-based walking animations.
 
-DesktopPet.exe is a small virtual cat companion that lives on the desktop and displays different moods and messages.
+---
 
-## Current Features
+## Preview
+
+### Cute Mood
+
+![Cute Mood](Images/cute.png)
+
+### Angry Mood
+
+![Angry Mood](Images/Angry.png)
+
+### Sleepy Mood
+![Sleepy Mood](Images/Sleepy.png)
+
+### Walking Animation
+
+![Walking Animation](Images/catwalk.gif)
+
+---
+
+## Features
+
+### Mood System
+
+* Cute mode
+* Angry mode
+* Sleepy mode
+* Unique messages for each mood
+
+### Autonomous Behaviour
+
+* Random mood selection
+* Automatic mood switching
+* Self-scheduling behaviour using `after()`
+
+### Interactive Features
+
+* Mouse click interactions
+* Mood changes based on petting count
+* Event handling using Tkinter bindings
+
+### Visual Features
 
 * Transparent desktop pet window
-* Cute, Angry, and Sleepy moods
-* Custom messages for each mood
-* Autonomous mood switching
-* Random mood selection every few seconds
+* Always-on-top desktop companion
+* Custom cat artwork
+* Sprite-based walking animation using six frames
+
+---
+
+## Technologies Used
+
+* Python
+* Tkinter
+* Pillow (PIL)
+
+---
 
 ## What I Learned
 
-* Tkinter widgets and events
+While building BlackCat, I practiced:
+
+* Variables and variable scope
 * Functions and function references
-* Random selection with `random.choice()`
+* Lists and indexing
+* Loops
+* Event binding
+* GUI programming with Tkinter
+* Image handling with Pillow
+* Sprite animation
+* Random selection using `random.choice()`
 * Self-scheduling functions using `after()`
-* Variable scope
-* Basic project organization and refactoring
+* Debugging and testing
+* Basic project organization
 
-## Future Plans
+---
 
-* More moods
-* Better artwork and animations
+## Project Structure
+
+```text
+Desktop Pet/
+│
+├── main.py
+├── walk_test.py
+├── cat.png
+├── cat2.png
+├── cat3.png
+├── walk1.png
+├── walk2.png
+├── walk3.png
+├── walk4.png
+├── walk5.png
+├── walk6.png
+└── README.md
+```
+
+---
+
+## Development Journey
+
+BlackCat started as a simple desktop pet that displayed a cat image and random messages.
+
+Over multiple versions, I gradually added:
+
+* Multiple moods
+* Autonomous mood switching
+* Interactive petting behaviour
+* Better project organization
+* Walking sprite animations
+
+This project helped me move from learning Python syntax to building a complete project from scratch.
+
+---
+
+## Current Status
+
+✅ BlackCat Version 1 Complete
+
+The original learning goals for this project have been achieved.
+
+Future updates may include:
+
 * Desktop movement
-* Interactive reactions
-* Reminders and notifications
+* Additional moods
+* Improved animations
+* Reminder system
+* More interactive behaviours
 
-This project is part of my journey learning Python and software development.
+---
+
+## Author
+
+Created by Farzana as part of a journey into Python programming, software development, and AI/Data Science.
